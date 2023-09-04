@@ -1,4 +1,4 @@
-package com.komzak.myapplication.presentation.ui.theme
+package com.komzak.myapplication.presentation.theme
 
 import android.app.Activity
 import android.os.Build

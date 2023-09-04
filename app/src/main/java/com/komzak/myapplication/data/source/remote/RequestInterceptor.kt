@@ -15,7 +15,7 @@ class RequestInterceptor : Interceptor {
             .newBuilder()
             .addQueryParameter(
                 "api_key",
-                "b251f83131ad1da248a073f4e86fd0dc"    //TODO Use your api key this one invalid
+                "b251f83131ad1da248a073f4e86fd0dc"
             )
             .build()
         val request = originalRequest.newBuilder()

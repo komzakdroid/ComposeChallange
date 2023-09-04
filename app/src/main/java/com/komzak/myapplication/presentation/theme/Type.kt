@@ -1,4 +1,4 @@
-package com.komzak.myapplication.presentation.ui.theme
+package com.komzak.myapplication.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
