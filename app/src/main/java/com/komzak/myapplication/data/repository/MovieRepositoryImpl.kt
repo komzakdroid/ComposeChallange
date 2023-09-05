@@ -22,12 +22,12 @@ class MovieRepositoryImpl @Inject constructor(
 
         try {
             fetchAndInsertPopularMovies(movieApiService, popularMoviesDao, movieDao)
+            emit(Resource.Success(getPopularMoviesFromDb(movieDao)))
         } catch (e: HttpException) {
             emit(Resource.Error(message = "Oops, something went wrong!"))
         } catch (e: IOException) {
             emit(Resource.Error(message = "Couldn't reach server, check your internet connection."))
         }
-        emit(Resource.Success(getPopularMoviesFromDb(movieDao)))
     }
 
     private suspend fun fetchAndInsertPopularMovies(
@@ -40,7 +40,7 @@ class MovieRepositoryImpl @Inject constructor(
         movieDao.insertMovieList(remotePopularMovies.results.map { it.toMovieEntity() })
     }
 
-    private suspend fun getPopularMoviesFromDb(movieDao: MovieDao): List<Movie> {
+    private fun getPopularMoviesFromDb(movieDao: MovieDao): List<Movie> {
         val newPopularMovies = movieDao.getMovieList().map {
             it.toMovie()
         }

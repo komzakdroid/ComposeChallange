@@ -1,18 +1,18 @@
 package com.komzak.myapplication.data.source.local.roomdb.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.komzak.myapplication.domain.domain.Movie
+import java.io.Serializable
 
 @Entity(tableName = MovieEntity.TABLE_NAME)
 data class MovieEntity(
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     val title: String,
     val overview: String,
-    @ColumnInfo(name = "poster_url") val posterUrl: String,
-    @ColumnInfo(name = "release_date") val releaseDate: String,
-) {
+    val posterUrl: String?,
+    val releaseDate: String,
+) : Serializable {
     fun toMovie(): Movie {
         return Movie(
             title = title,

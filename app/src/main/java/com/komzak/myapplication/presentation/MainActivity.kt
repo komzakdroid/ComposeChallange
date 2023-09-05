@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.komzak.myapplication.presentation.screens.MoviesScreen.MoviesScreen
+import com.komzak.myapplication.presentation.screens.moviesScreen.MoviesScreen
 import com.komzak.myapplication.presentation.theme.MyApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -9,8 +9,8 @@ import com.komzak.myapplication.data.source.local.roomdb.entity.PopularMoviesEnt
 @Dao
 interface PopularMoviesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertPopularMovieList(movies: PopularMoviesEntity)
+    fun insertPopularMovieList(movies: PopularMoviesEntity)
 
     @Query("DELETE FROM ${PopularMoviesEntity.TABLE_NAME}")
-    suspend fun delete()
+    fun delete()
 }

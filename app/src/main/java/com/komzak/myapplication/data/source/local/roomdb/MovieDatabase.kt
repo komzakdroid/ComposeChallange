@@ -37,7 +37,8 @@ abstract class MovieDatabase : RoomDatabase() {
                     context.applicationContext,
                     MovieDatabase::class.java,
                     "movie_database"
-                ).build()
+                ).allowMainThreadQueries().fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 return instance
             }

@@ -1,19 +1,17 @@
 package com.komzak.myapplication.data.source.remote.dto
 
 
+import com.google.gson.annotations.SerializedName
 import com.komzak.myapplication.data.source.local.roomdb.entity.PopularMoviesEntity
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class PopularMoviesDto(
-    @SerialName("page")
+    @SerializedName("page")
     val page: Int,
-    @SerialName("results")
+    @SerializedName("results")
     val results: List<MovieDto>,
-    @SerialName("total_pages")
+    @SerializedName("total_pages")
     val totalPages: Int,
-    @SerialName("total_results")
+    @SerializedName("total_results")
     val totalResults: Int
 ) {
 

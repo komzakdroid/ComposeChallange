@@ -10,16 +10,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import coil.size.Scale
 import coil.size.Size
 import com.komzak.myapplication.R
 
 @Composable
-fun CoilImage(imageUrl: String) {
+fun CoilImage(imageUrl: String?) {
+    println("https://image.tmdb.org/t/p/w600_and_h900_bestv2${imageUrl}")
     Image(
         painter = rememberAsyncImagePainter(
             model = ImageRequest.Builder(LocalContext.current)
                 .data("https://image.tmdb.org/t/p/w600_and_h900_bestv2${imageUrl}")
                 .size(Size.ORIGINAL)
+                .scale(Scale.FIT)
                 .placeholder(R.drawable.image_placeholder)
                 .build()
         ),

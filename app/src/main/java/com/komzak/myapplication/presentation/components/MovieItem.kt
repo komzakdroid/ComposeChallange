@@ -27,6 +27,7 @@ fun MovieItem(
         .padding(vertical = 16.dp, horizontal = 16.dp)
         .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically) {
+
         CoilImage(imageUrl = movie.posterUrl)
 
         Spacer(modifier = Modifier.width(16.dp))

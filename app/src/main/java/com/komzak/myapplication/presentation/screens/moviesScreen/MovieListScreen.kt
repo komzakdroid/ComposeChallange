@@ -1,4 +1,4 @@
-package com.komzak.myapplication.presentation.screens.MoviesScreen
+package com.komzak.myapplication.presentation.screens.moviesScreen
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize

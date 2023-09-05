@@ -1,50 +1,31 @@
 package com.komzak.myapplication.data.source.local.roomdb.converter
 
 import androidx.room.TypeConverter
-import com.komzak.myapplication.domain.domain.Movie
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
+import com.komzak.myapplication.data.source.local.roomdb.entity.MovieEntity
+import com.komzak.myapplication.data.source.local.roomdb.entity.PopularMoviesEntity
 
 class PopularMoviesEntityConverter {
-
     @TypeConverter
-    fun fromStringToMovieList(value: String): List<Movie> {
-        return
+    fun fromStringToMovieList(data: String): List<PopularMoviesEntity> {
+        val listType = object : TypeToken<ArrayList<PopularMoviesEntity>>() {}.type
+        return GsonBuilder().create().fromJson(data, listType)
     }
 
-    /*
-        @TypeConverter
-        fun fromStringToMovieList(value: String): List<Movie>? =
-            Moshi.Builder()
-                .add(KotlinJsonAdapterFactory())
-                .build()
-                .adapter<List<Movie>>(Types.newParameterizedType(List::class.java, Movie::class.java))
-                .fromJson(value)
+    @TypeConverter
+    fun fromMovieListTypeToString(breed: ArrayList<PopularMoviesEntity>): String {
+        return GsonBuilder().create().toJson(breed)
+    }
 
-        @TypeConverter
-        fun fromMovieListTypeToString(movieListType: List<Movie>?): String = Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
-            .build()
-            .adapter<List<Movie>>(Types.newParameterizedType(List::class.java, Movie::class.java))
-            .toJson(movieListType)
+    @TypeConverter
+    fun fromStringToMovieEntityList(data: String): List<MovieEntity> {
+        val listType = object : TypeToken<ArrayList<MovieEntity>>() {}.type
+        return GsonBuilder().create().fromJson(data, listType)
+    }
 
-        @TypeConverter
-        fun fromStringToMovieEntityList(value: String): List<MovieEntity>? =
-            Moshi.Builder()
-                .add(KotlinJsonAdapterFactory())
-                .build().adapter<List<MovieEntity>>(
-                    Types.newParameterizedType(
-                        List::class.java,
-                        MovieEntity::class.java
-                    )
-                ).fromJson(value)
-
-        @TypeConverter
-        fun fromMovieEntityListTypeToString(movieEntityListType: List<MovieEntity>?): String =
-            Moshi.Builder()
-                .add(KotlinJsonAdapterFactory())
-                .build().adapter<List<MovieEntity>>(
-                    Types.newParameterizedType(
-                        List::class.java,
-                        MovieEntity::class.java
-                    )
-                ).toJson(movieEntityListType)*/
+    @TypeConverter
+    fun fromMovieEntityListTypeToString(breed: List<MovieEntity>): String {
+        return GsonBuilder().create().toJson(breed)
+    }
 }

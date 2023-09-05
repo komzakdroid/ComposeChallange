@@ -52,7 +52,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
@@ -80,9 +80,6 @@ dependencies {
 
     // Compose navigation
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-
-    // kotlin serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 
     // Hilt dependency injection
     implementation("com.google.dagger:hilt-android:2.46.1")

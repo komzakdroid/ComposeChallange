@@ -8,12 +8,13 @@ import com.komzak.myapplication.data.source.local.roomdb.entity.MovieEntity
 
 @Dao
 interface MovieDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMovieList(movies: List<MovieEntity>)
+    fun insertMovieList(movies: List<MovieEntity>)
 
     @Query("SELECT * FROM ${MovieEntity.TABLE_NAME}")
-    suspend fun getMovieList(): List<MovieEntity>
+    fun getMovieList(): List<MovieEntity>
 
     @Query("DELETE FROM ${MovieEntity.TABLE_NAME}")
-    suspend fun deleteAll()
+    fun deleteAll()
 }
